@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'DOSGothic';
+  src: url(DOSGothic.ttf);
+}
+
+body{
+  background-color: #0019F4;
+}
+
+*{
+  font-family: 'DOSGothic', cursive;
+}
