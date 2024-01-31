@@ -5,6 +5,8 @@
 
 body{
   background-color: #33726d;
+  white-space: normal;
+  word-break: break-word;
 }
 
 *{
