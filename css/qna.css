@@ -20,7 +20,7 @@
 }
 
 .answerList:hover, .answerList:focus {
-  background-color: pink;
+  background-color: rgb(31, 31, 157);
   color: whitesmoke;
 }
 
@@ -37,11 +37,11 @@
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#febbbb+0,fe9090+52,ff5c5c+100;Red+3D+%231 */
   background: #febbbb;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);
+  background: -moz-linear-gradient(top, #1b57bd 0%, #053697 52%, #120471 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);
+  background: -webkit-linear-gradient(top, #1b57bd 0%, #051d97 52%, #120471 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);
+  background: linear-gradient(to bottom, #1b57bd 0%, #051d97 52%, #120471 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#febbbb', endColorstr='#ff5c5c', GradientType=0);
   /* IE6-9 */

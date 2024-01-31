@@ -3,6 +3,13 @@ const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 const allResults = document.querySelector("#allResults");
 
+for (var i=qnaList.length-1 ; i>0 ; i--) {
+  var j = Math.floor(Math.random() * (i + 1));
+  var temp = qnaList[i];
+  qnaList[i] = qnaList[j];
+  qnaList[j] = temp;
+}
+
 let seeAllResults = false;
 const endPoint = 15;
 const selectPeople = [0, 0, 0, 0, 0];
@@ -66,11 +73,13 @@ function addAnswer(answerText, qIdx, idx) {
 
   answer.addEventListener("click", function(){
     var children = document.querySelectorAll('.answerList');
+
     for(let i = 0; i < children.length; i++){
       children[i].disabled = true;
       children[i].style.WebkitAnimation = "fadeOut 0.5s";
       children[i].style.animation = "fadeOut 0.5s";
     }
+
     setTimeout(() => {
       var target1 = qnaList[qIdx].a[idx].type1; // q인덱스의 질문, 인덱스의 대답의 type배열
       var target2 = qnaList[qIdx].a[idx].type2;
