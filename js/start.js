@@ -31,7 +31,7 @@ function setResult() {
   let point2 = calResultM();
 
   const resultName = document.querySelector('.resultname');
-  resultName.innerHTML = mbtiList[point2].mbti + infoList[point1].name;
+  resultName.innerHTML = mbtiList[point2].mbti + '<br>' + infoList[point1].name;
 
   var resultImg = document.createElement('img');
   const imgDiv = document.querySelector('#resultImg');
@@ -148,14 +148,17 @@ function goAllResults() {
   var r = document.querySelector('.resultBox');
   for(let i=0 ; i<mbtiList.length ; i++) {
     for(let j=0 ; j<infoList.length ; j++) {
+      var container = document.createElement('div');
       var picture = document.createElement('img');
       var answer = document.createElement('button');
+      answer.classList.add('allresult_button');
       const imgs = document.querySelector('#imgs');
       picture.src = 'img/image-' + j + '' + i + '.png';
-      picture.classList.add('my-3', 'col-lg-6', 'col-md-8', 'col-sm-10', 'col-12', 'mx-auto');
-      imgs.appendChild(picture);
-      imgs.appendChild(answer);
-      answer.innerHTML = mbtiList[i].mbti + infoList[j].name;
+      picture.classList.add('allresult_img');
+      imgs.appendChild(container);
+      container.appendChild(picture);
+      container.appendChild(answer);
+      answer.innerHTML = mbtiList[i].mbti + '<br>' + infoList[j].name;
       answer.addEventListener("click", function() {
         allResults.style.WebkitAnimation = "fadeOut 1s";
         allResults.style.animation = "fadeOut 1s";
