@@ -1,14 +1,5 @@
-@font-face {
-  font-family: 'DOSGothic';
-  src: url(DOSGothic.ttf);
-}
-
 body{
   background-color: #33726d;
   white-space: normal;
   word-break: keep-all;
-}
-
-*{
-  font-family: 'DOSGothic', cursive;
 }

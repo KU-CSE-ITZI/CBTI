@@ -155,6 +155,7 @@ function goAllResults() {
       const imgs = document.querySelector('#imgs');
       picture.src = 'img/image-' + j + '' + i + '.png';
       picture.classList.add('allresult_img');
+      picture.setAttribute('loading', 'lazy');
       imgs.appendChild(container);
       container.appendChild(picture);
       container.appendChild(answer);
