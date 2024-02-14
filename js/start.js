@@ -3,7 +3,7 @@ const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 const allResults = document.querySelector("#allResults");
 
-for (var i=qnaList.length-1 ; i>0 ; i--) {
+for (var i = qnaList.length - 1; i > 0; i--) {
   var j = Math.floor(Math.random() * (i + 1));
   var temp = qnaList[i];
   qnaList[i] = qnaList[j];
@@ -20,6 +20,7 @@ function calResultP() {
   var result = selectPeople.indexOf(Math.max(...selectPeople));
   return result;
 }
+
 function calResultM() {
   console.log(selectMbti);
   var result = selectMbti.indexOf(Math.max(...selectMbti));
@@ -55,8 +56,9 @@ function goResult() {
     setTimeout(() => {
       qna.style.display = "none";
       result.style.display = "block"
-    }, 450)})
-    setResult();
+    }, 450)
+  })
+  setResult();
 }
 
 function addAnswer(answerText, qIdx, idx) {
@@ -71,10 +73,10 @@ function addAnswer(answerText, qIdx, idx) {
   a.appendChild(answer);
   answer.innerHTML = answerText;
 
-  answer.addEventListener("click", function(){
+  answer.addEventListener("click", function () {
     var children = document.querySelectorAll('.answerList');
 
-    for(let i = 0; i < children.length; i++){
+    for (let i = 0; i < children.length; i++) {
       children[i].disabled = true;
       children[i].style.WebkitAnimation = "fadeOut 0.5s";
       children[i].style.animation = "fadeOut 0.5s";
@@ -83,33 +85,33 @@ function addAnswer(answerText, qIdx, idx) {
     setTimeout(() => {
       var target1 = qnaList[qIdx].a[idx].type1; // q인덱스의 질문, 인덱스의 대답의 type배열
       var target2 = qnaList[qIdx].a[idx].type2;
-      for(let i = 0; i < target1.length; i++){
+      for (let i = 0; i < target1.length; i++) {
         selectPeople[target1[i]] += 1;
       }
-      for(let i = 0; i < target2.length; i++){
+      for (let i = 0; i < target2.length; i++) {
         selectMbti[target2[i]] += 1;
       }
-      for(let i = 0; i < children.length; i++){
+      for (let i = 0; i < children.length; i++) {
         children[i].style.display = 'none';
       }
       goNext(++qIdx);
-    },450)
+    }, 450)
   }, false);
 }
 
 function goNext(qIdx) {
-  if(qIdx === endPoint){
+  if (qIdx === endPoint) {
     goResult();
     return;
   }
 
   var q = document.querySelector('.qBox');
   q.innerHTML = qnaList[qIdx].q;
-  for(let i in qnaList[qIdx].a){
+  for (let i in qnaList[qIdx].a) {
     addAnswer(qnaList[qIdx].a[i].answer, qIdx, i);
   }
   var status = document.querySelector('.statusBar');
-  status.style.width = (100/endPoint) * (qIdx+1) + '%';
+  status.style.width = (100 / endPoint) * (qIdx + 1) + '%';
 }
 
 function begin() {
@@ -146,8 +148,8 @@ function goAll() {
 
 function goAllResults() {
   var r = document.querySelector('.resultBox');
-  for(let i=0 ; i<mbtiList.length ; i++) {
-    for(let j=0 ; j<infoList.length ; j++) {
+  for (let i = 0; i < mbtiList.length; i++) {
+    for (let j = 0; j < infoList.length; j++) {
       var container = document.createElement('div');
       var picture = document.createElement('img');
       var answer = document.createElement('button');
@@ -160,7 +162,7 @@ function goAllResults() {
       container.appendChild(picture);
       container.appendChild(answer);
       answer.innerHTML = mbtiList[i].mbti + '<br>' + infoList[j].name;
-      answer.addEventListener("click", function() {
+      answer.addEventListener("click", function () {
         allResults.style.WebkitAnimation = "fadeOut 1s";
         allResults.style.animation = "fadeOut 1s";
         setTimeout(() => {
@@ -169,21 +171,22 @@ function goAllResults() {
           setTimeout(() => {
             allResults.style.display = "none";
             result.style.display = "block"
-          }, 450)})
-          const resultName = document.querySelector('.resultname');
-          resultName.innerHTML = mbtiList[i].mbti + infoList[j].name;
+          }, 450)
+        })
+        const resultName = document.querySelector('.resultname');
+        resultName.innerHTML = mbtiList[i].mbti + infoList[j].name;
 
-          var resultImg = document.createElement('img');
-          const imgDiv = document.querySelector('#resultImg');
-          var imgURL = 'img/image-' + j + '' + i + '.png';
-          resultImg.src = imgURL;
-          resultImg.alt = j + i;
-          resultImg.classList.add('img-fluid');
-          imgDiv.innerHTML = '';
-          imgDiv.appendChild(resultImg);
+        var resultImg = document.createElement('img');
+        const imgDiv = document.querySelector('#resultImg');
+        var imgURL = 'img/image-' + j + '' + i + '.png';
+        resultImg.src = imgURL;
+        resultImg.alt = j + i;
+        resultImg.classList.add('img-fluid');
+        imgDiv.innerHTML = '';
+        imgDiv.appendChild(resultImg);
 
-          const resultDesc = document.querySelector('.resultDesc');
-          resultDesc.innerHTML = infoList[j].desc + mbtiList[i].desc;
+        const resultDesc = document.querySelector('.resultDesc');
+        resultDesc.innerHTML = infoList[j].desc + mbtiList[i].desc;
       })
     }
   }

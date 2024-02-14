@@ -1,5 +1,12 @@
-body{
-  background-color: #33726d;
-  white-space: normal;
-  word-break: keep-all;
+body {
+    background-color: #33726d;
+    white-space: normal;
+    word-break: keep-all;
+}
+
+.itzi {
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    font-family: "Pixelated MS Sans Serif", Arial;
 }
